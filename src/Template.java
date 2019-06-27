@@ -1,7 +1,7 @@
 	/*
 	ID: 
 	LANG: JAVA
-	TASK: gift1
+	TASK: 
 	*/
 
 import java.util.*;
@@ -27,7 +27,7 @@ public class Template {
 	            init();
 
 	            //Write out file
-	            out.print(solve());
+	            out.println(solve());
 
 	            out.close();
 	            in.close();
