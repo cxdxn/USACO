@@ -15,7 +15,7 @@ static PrintWriter out;
 
 	//Input Variables
     static String [] list;
-    static String num, characters;
+    static String beads, necklace;
     public static void main(String[] args) {
 
         try {
@@ -44,8 +44,8 @@ static PrintWriter out;
         //Get data 
         //Initialize Input Variables
     	
-    	num = in.nextLine();
-    	characters = in.nextLine();
+        beads = in.nextLine();
+		necklace = in.nextLine();
 
 
     }
@@ -53,59 +53,81 @@ static PrintWriter out;
 
     private static String solve() {
         String result = "";
-        int n = Integer.parseInt(num);
-    	characters += characters;
-        int max = 0;
-        
-        for (int i = 0; i < characters.length()/2; i++) {
-        	int c = 1;
-        	char start = characters.charAt(i);
-        	if (start == 'w') {
-        		c = Math.max(method('r', i), method('b', i));
-        	}
-        	else {
-        		c = method(start, i);
-        	}
-        	
-        	if (max < c) {
-        		max = c;
-        	}
-        }
-        
-        result = "" + max;
+        int n = Integer.parseInt(beads);
+		necklace += necklace;
+		int max = 0;
+		for (int i = 0; i < n; i++){
+			int curr = method(necklace,i);
+			if (curr > max){
+				if (curr >= n){
+					max = n;
+				}
+				else{
+					max = curr;
+				}
+			}
+		}
+		result = max+"";
         return result;
 
     }
     
-    private static int method(char first, int n) {
-        boolean flag = false;
-        int idx = n+1;
-        int c = 1;
-    	while (c < characters.length()/2) {
-    		char curr = characters.charAt(idx);
-    		//System.out.println(curr);
-    		if (!flag) {
-       			if (curr == first || curr == 'w') {
-        				c++;
-        			}
-        			else {
-        				flag = true;
-        				c++;
-        			}
-        		}
-        	else {
-        		if (curr != first || curr == 'w') {
-        			c++;
-        		}
-        		else {
-        			break;
-        		}
-        	}
-    		idx++;
-        }
-    	//System.out.println(c);
-    	return c;
-    }
+	public static int method(String necklace, int idx){
+		char [] bnecklace = necklace.toCharArray();
+		int c = 0;
+		if (bnecklace[idx] == 'w'){
+			for (int i = idx; i < bnecklace.length; i++){
+				if (bnecklace[i] != 'w'){
+					break;
+				}
+				else{
+					c++;
+					idx++;
+				}
+			}
+		}
+		if (idx < bnecklace.length){
+			if (bnecklace[idx] == 'r'){
+			for (int i = idx; i < bnecklace.length; i++){
+				if (bnecklace[i] == 'b'){
+					break;
+				}
+				else{
+					c++;
+					idx++;
+				}
+			}
+			for (int i = idx; i < bnecklace.length; i++){
+				if (bnecklace[i] == 'r'){
+					break;
+				}
+				else{
+					c++;
+				}
+			}
+		}
+		else if (bnecklace[idx] == 'b'){
+			for (int i = idx; i < bnecklace.length; i++){
+				if (bnecklace[i] == 'r'){
+					break;
+				}
+				else{
+					c++;
+					idx++;
+				}
+			}
+			for (int i = idx; i < bnecklace.length; i++){
+				if (bnecklace[i] == 'b'){
+					break;
+				}
+				else{
+					c++;
+				}
+			}
+		}
+	}
+		return c;
+	}
 
     //Algorithm methods
 //    private static int change(String s) {

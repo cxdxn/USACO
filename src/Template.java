@@ -43,7 +43,7 @@ public class Template {
 	    private static void init() {
 	        //Get data 
 	        //Initialize Input Variables
-
+	    	
 
 
 	    }
@@ -51,8 +51,6 @@ public class Template {
 
 	    private static String solve() {
 	        String result = "";
-
-
 
 	        return result;
 
