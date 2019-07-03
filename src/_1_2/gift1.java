@@ -1,4 +1,4 @@
-//  package _1_2;
+package _1_2;
 
 /*
 ID: cadenka1
