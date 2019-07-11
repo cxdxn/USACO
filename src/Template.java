@@ -8,8 +8,6 @@ import java.util.*;
 import java.io.*;
 public class Template {
 
-
-
     static Scanner in;
     static PrintWriter out;
 
@@ -56,9 +54,4 @@ public class Template {
 
 	    }
 
-	    //Algorithm methods
-//	    private static int change(String s) {
-	//
-	//
-//	    }
 }
