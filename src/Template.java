@@ -11,7 +11,7 @@ public class Template {
     static Scanner in;
     static PrintWriter out;
 
-    //Input Variables
+    	//Input Variables
 	    static String [] list;
 
 	    public static void main(String[] args) {
