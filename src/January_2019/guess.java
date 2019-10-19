@@ -1,4 +1,4 @@
-package January_2019;
+//package January_2019;
 
 import java.util.*;
 import java.io.*;
@@ -35,7 +35,7 @@ static PrintWriter out;
     private static void init() {
         //Get data 
         //Initialize Input Variables
-    	int n = in.nextInt();
+    	n = in.nextInt();
     	a = new HashSet[n];
     	for (int i = 0; i < n; i++) {
     		a[i] = new HashSet<String>();
@@ -45,26 +45,26 @@ static PrintWriter out;
     			a[i].add(in.next());
     		}
     	}
+    	
+    	//System.out.println(Arrays.toString(a));
     }
 
-
     private static String solve() {
-    	int same = 0;
     	int max = 0;
-        for (int i = 0; i < n; i++) {
-        	for (int j = i + 1; j < n; j++) {
+        for (int i = 0; i < n-1; i++) {
+        	for (int j = i + 1; j < n; j++) {    	
+        		int same = 0;
         		for (String s : a[i]) {
         			if (a[j].contains(s)) {
-        				same++;
-        				if (same > max) {
-        					max = same;
-        				}
+        				same++;		
         			}
         		}
+        		//System.out.println(same);
+        		max = Math.max(max, same);
         	}
         }
-        System.out.println(max);
-        return max + "";
+        //System.out.println(max);
+        return max + 1 + "";
     }
 
 }
